@@ -1,9 +1,5 @@
 package day06;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.net.Socket;
 
 public class ListClient {
@@ -21,6 +17,16 @@ public class ListClient {
         IOUtils.write(socket, "%d %d".formatted(n,limit));
 
         String response = IOUtils.read(socket);
+        //System.out.printf("<<< %s\n",response);
+        //Process response get the average
+
+        String[] randNums=response.split(":");
+        Integer totalSum=0;
+        for (Integer i=0;i<randNums.length;i++){
+            totalSum=totalSum+Integer.parseInt(randNums[i]);
+        }
+        Integer average=totalSum/randNums.length;
+        System.out.printf("Average of the Numbers are: %d",average);
 
         socket.close();
 

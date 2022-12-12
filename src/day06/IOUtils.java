@@ -31,7 +31,7 @@ public class IOUtils {
         DataInputStream dis = new DataInputStream(bis);
 
         String payload =dis.readUTF();
-        System.out.printf(">>> %s\n",payload);
+        System.out.printf("%s\n",payload);
         
         // dis.close();
         // bis.close();
